@@ -1,0 +1,220 @@
+/* =====================================================
+   WARNA UTAMA KOPERASI
+   ===================================================== */
+:root {
+    --hijau: #0f6b4f;
+    --hijau-tua: #094733;
+    --kuning: #f2a900;
+    --latar: #f6f7f3;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: var(--latar);
+}
+
+.brand {
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+/* =====================================================
+   NAVBAR PEGAWAI (HIJAU)
+   ===================================================== */
+.nav-pegawai {
+    background-color: #146c43 !important;
+    box-shadow: 0 2px 8px rgba(20, 108, 67, 0.25);
+}
+
+.nav-pegawai .nav-link {
+    color: rgba(255, 255, 255, 0.88) !important;
+}
+
+.nav-pegawai .nav-link:hover,
+.nav-pegawai .nav-link.active {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+/* =====================================================
+   NAVBAR ANGGOTA (KUNING)
+   ===================================================== */
+.nav-anggota {
+    background-color: #d97706 !important;
+    box-shadow: 0 2px 8px rgba(217, 119, 6, 0.25);
+}
+
+.nav-anggota .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.nav-anggota .nav-link:hover,
+.nav-anggota .nav-link.active {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+.nav-anggota .navbar-brand,
+.nav-anggota .navbar-text {
+    color: #2b2000 !important;
+}
+
+/* =====================================================
+   BADGE PERAN DAN NAVBAR UMUM
+   ===================================================== */
+.badge-role-pegawai {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.badge-role-anggota {
+    background-color: #78350f;
+    color: #fef3c7;
+}
+
+.navbar .nav-link {
+    white-space: nowrap;
+}
+
+/* =====================================================
+   TOMBOL DAN KARTU
+   ===================================================== */
+.btn-kas {
+    background: var(--hijau);
+    color: #ffffff;
+}
+
+.btn-kas:hover {
+    background: var(--hijau-tua);
+    color: #ffffff;
+}
+
+.card {
+    border: 0;
+    border-radius: 10px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* =====================================================
+   DASHBOARD
+   ===================================================== */
+
+/* foto koperasi di bagian atas dashboard */
+.banner-koperasi {
+    background: #446665;
+    border-radius: 10px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.banner-koperasi img {
+    height: 200px;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+/* kartu angka di dashboard */
+.stat {
+    border-left: 5px solid var(--kuning);
+    transition: transform 0.2s;
+}
+
+.stat:hover {
+    transform: translateY(-3px);
+}
+
+.stat .angka {
+    font-size: 35px;
+    font-weight: 800;
+    color: var(--hijau);
+}
+
+.badge-jabatan {
+    background: #e3f1ec;
+    color: var(--hijau-tua);
+    font-weight: 600;
+}
+
+/* =====================================================
+   ANIMASI HALAMAN 
+   ===================================================== */
+.muncul {
+    animation: muncul 0.4s ease;
+}
+
+@keyframes muncul {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =====================================================
+   HALAMAN LOGIN
+   ===================================================== */
+.judul-login {
+    color: var(--hijau);
+}
+
+/* =====================================================
+   NOTA (SIMPANAN DAN PINJAMAN)
+   Dipakai bersama oleh simpanan/nota dan pinjaman/nota.
+   Semua aturan di bawah class .halaman-nota / .nota
+   supaya tidak mengubah halaman lain.
+   ===================================================== */
+body.halaman-nota {
+    background: var(--latar);
+    font-family: 'Courier New', monospace;
+}
+
+.nota {
+    max-width: 380px;
+    margin: 24px auto;
+    background: #ffffff;
+    padding: 24px;
+    border: 1px dashed #888;
+}
+
+.nota .baris {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 4px;
+}
+
+.nota .baris span:last-child {
+    text-align: right;
+    word-break: break-word;
+}
+
+/* ukuran kertas saat dicetak / disimpan PDF */
+@page {
+    size: A5;
+    margin: 10mm;
+}
+
+@media print {
+    body.halaman-nota {
+        background: #ffffff;
+        height: auto;
+    }
+
+    .nota {
+        border: 0;
+        margin: 0;
+        padding: 0;
+        max-width: 100%;
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    .tanpa-cetak {
+        display: none !important;
+    }
+}
